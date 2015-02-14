@@ -1,0 +1,8 @@
+USE messages_games;
+
+CREATE TABLE messages_games (
+    id INT(11) NOT NULL AUTO_INCREMENT
+    , message VARCHAR(255) NOT NULL
+    , PRIMARY KEY (id)    
+    
+    );

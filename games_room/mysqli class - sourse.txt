@@ -1,0 +1,2 @@
+https://gist.github.com/alixcan/2777783
+https://github.com/alexrada/CityHelp/blob/master/includes/classes/mysqli.class.php
