@@ -1,0 +1,183 @@
+<?php   
+    include_once "header.php";    
+?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/kickstart.js"></script> <!-- KICKSTART -->
+<link rel="stylesheet" href="css/kickstart.css" media="all" /> <!-- KICKSTART -->
+
+
+<!DOCTYPE HTML>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />	
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" charset="utf-8"></script>
+  
+ <style>
+ /*demo page style*/
+    body {background: #f0f0f0;}
+    h1{
+    	font-family:"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+    	text-shadow:0 1px 1px black;
+  
+    	/* The logo text */
+    	font-size:3.5em;
+    	padding:0.5em 0 0;
+    	text-transform:uppercase;
+        margin:0; padding:0;
+    }
+    
+    p {line-height:1.5em; padding-bottom:1em;}
+    
+    #wrapper {
+        width:920px;
+        margin:0 auto;
+        padding: 0;
+    }
+    
+    #header {height: 150px;}
+    
+    #logo {height: 100px;}
+    
+/*main menu*/
+    #menu {
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 50px;
+        background: #95999d;
+        
+        text-shadow:0 1px 1px black;
+       -moz-border-radius: 5px;
+        -webkit-border-radius:5px;
+        border-radius:5px;
+    }
+    #menu ul {padding:0; margin:0;}
+    #menu li{
+        display: inline;
+        list-style:none;
+        margin: 5px 10px;
+    }
+    
+    #menu li a {
+        padding:5px 10px;
+        color:#fff;
+        text-decoration: none;
+        
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+
+    }
+    
+    #menu li a:hover{
+        background: #64769b;
+        color: #ff0;
+
+        -webkit-transition-property: color, background;
+        -webkit-transition-duration: 0.5s, 0.5s;
+    }
+    .default {
+        width:920px;
+    }
+    .fixed {
+        position:fixed;
+        top:-5px; left:0;
+        width:100%;
+        padding:10px 0;
+        
+        -moz-box-shadow: 5px 5px 20px #333;
+        -webkit-box-shadow: 5px 5px 20px #333;
+        box-shadow: 5px 5px 20px #333;
+    }
+    .transbg {
+        background-color: rgba(118, 126, 132, 0.7)!important;
+    }   
+
+    
+</style>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        var $menu = $("#menu");
+            
+        $(window).scroll(function(){
+            if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
+                $menu.fadeOut('fast',function(){
+                    $(this).removeClass("default")
+                           .addClass("fixed transbg")
+                           .fadeIn('fast');
+                });
+            } else if($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
+                $menu.fadeOut('fast',function(){
+                    $(this).removeClass("fixed transbg")
+                           .addClass("default")
+                           .fadeIn('fast');
+                });
+            }
+        });//scroll
+        
+        $menu.hover(
+            function(){
+                if( $(this).hasClass('fixed') ){
+                    $(this).removeClass('transbg');
+                }
+            },
+            function(){
+                if( $(this).hasClass('fixed') ){
+                    $(this).addClass('transbg');
+                }
+            });//hover   
+   
+            
+    });//jQuery
+</script>
+
+
+
+
+
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">      
+        <div id="menu" class="default">
+            <ul>
+               
+                <li><a href="index.php?cat=Chat"><i class="fa fa-twitter"></i>Chat</a></li>| 
+                
+                <?php
+                    if ($_SESSION["isLogined"] == "yes")
+                    {
+                        echo '<li><a href="index.php?cat=Films">Films Room</a></li>|'; 
+                        echo '<li><a href="index.php?cat=Music">Music Room</a></li>|'; 
+                        echo '<li><a href="index.php?cat=Games">Games Room</a></li>|'; 
+                        
+                        echo '<li><a href="index.php?cat=Profile">Profile</a></li>|';  
+                    }
+                    else
+                    {
+                        echo '<li><a href="index.php?cat=Registration_Page">Registration</a></li>|';
+                        echo '<li><a href="index.php?cat=login">Login</a></li>|';   
+                    }
+                ?>             
+                
+                <li><a href="index.php?cat=Contacts">Contacts</a></li>|             
+            	<li><a href="index.php?cat=contact_us">Contact Me</a> </li>|   
+                
+                <?php
+                    if ($_SESSION["isLogined"] == "yes")
+                    {                      
+                        echo '<li><a href="index.php?cat=Logout" onclick="location.reload();">Logout</a></li>';  
+                    }
+                   
+                ?>        
+            </ul>
+        </div>
+    </div>
+    
+</div>
+</body>
+</html>
+
