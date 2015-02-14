@@ -41,6 +41,14 @@
     include_once "menu.htm";    
 ?>
 
+<?php   
+    include_once "menu.htm"; 
+     if ($_SESSION["isLogined"] == "yes")
+     {
+        include_once "welcome.php";  
+     }
+?>
+
 <div class="grid">
 	<div class="col_12" style="margin-top:40px;">
         
