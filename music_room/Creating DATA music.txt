@@ -1,0 +1,4 @@
+USE messages_music;
+
+INSERT INTO messages_music(message) VALUES ('MUSIC');
+INSERT INTO messages_music(message) VALUES ('HELLO');

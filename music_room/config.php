@@ -5,7 +5,7 @@
     $config['host'] = 'localhost';
     $config['user'] = 'root';
     $config['pass'] = '';
-    $config['table'] = 'messages';
+    $config['table'] = 'messages_music';
     
     include_once 'mysqli.class.php';
     // Then simply connect to your DB this way:

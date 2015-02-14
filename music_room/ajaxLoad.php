@@ -4,7 +4,7 @@
                       $(".delete").click(function(){
                        var item = $(this).parent(); 
                        var id = $(this).attr('rel');                      
-                       $.post('films_room/ajaxDelete.php', {'id': id}, function(){
+                       $.post('music_room/ajaxDelete.php', {'id': id}, function(){
                            $(item).hide();
                        });
                        
@@ -17,7 +17,7 @@
     include_once 'config.php';
 
     // Run a Query:
-    $DB->Query('SELECT * FROM messages');
+    $DB->Query('SELECT * FROM messages_music');
     // Get an array of items:
     $data = $DB->Get();
     
